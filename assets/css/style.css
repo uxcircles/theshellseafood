@@ -136,8 +136,10 @@ em.script { font-style: italic; font-weight: 500; color: var(--coral); }
 .hero-inner { position: relative; z-index: 1; padding-block: 28px 48px; }
 .hero-top { display: flex; justify-content: space-between; align-items: center; gap: 12px 24px; flex-wrap: wrap; }
 .wordmark { font-family: "Anton", "Impact", "Arial Narrow", sans-serif; font-weight: 400; text-transform: uppercase; text-align: center; line-height: .82; letter-spacing: .005em; font-size: min(19vw, 290px); margin: 22px 0 0; color: var(--shell); white-space: nowrap; }
-.wordmark span[aria-hidden] { display: block; background: linear-gradient(180deg, var(--shell) 0%, var(--shell) 55%, #9fb4c8 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
-.anatomy { position: relative; margin: clamp(8px, 1vw, 16px) auto 0; /* sits just under the wordmark: overlapping it hid the S */ max-width: 1060px; z-index: 2; }
+/* padding gives the gradient room for round letters (the S) that rise above the tight line box;
+   without it Safari paints the S with its top sliced off. The negative margin keeps the layout. */
+.wordmark span[aria-hidden] { display: block; padding: .14em 0 .06em; margin: -.14em 0 -.06em; background: linear-gradient(180deg, var(--shell) 0%, var(--shell) 55%, #9fb4c8 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.anatomy { position: relative; margin: clamp(-96px, -6.4vw, -24px) auto 0; max-width: 1060px; z-index: 2; }
 .anatomy-stage { position: relative; aspect-ratio: 180 / 100; }
 .anatomy-plate { position: absolute; left: 22.222%; width: 55.556%; top: 0; height: 100%; object-fit: contain; filter: drop-shadow(0 40px 46px rgba(0,0,0,.6)); }
 .anatomy-lines { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
@@ -214,7 +216,7 @@ em.script { font-style: italic; font-weight: 500; color: var(--coral); }
   .hero .hide-sm { display: none; }
   .hero .show-sm { display: flex; flex-basis: 100%; margin-bottom: 4px; }
   .wordmark { font-size: 23.5vw; margin-top: 18px; }
-  .anatomy { margin-top: 2vw; }
+  .anatomy { margin-top: -3vw; }
   .anatomy-stage { width: 168%; margin-left: -34%; }
   .leaders { display: none; }
   .anatomy-labels { position: static; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 14px; margin-top: 4px; }
