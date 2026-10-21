@@ -23,8 +23,8 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&display=swap" rel="stylesheet">
-  <link rel="preload" as="image" href="assets/img/platter-cutout-700.webp" imagesrcset="assets/img/platter-cutout-700.webp 700w, assets/img/platter-cutout-1400.webp 1400w" imagesizes="(max-width: 860px) 84vw, 640px" fetchpriority="high">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Figtree:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="assets/img/platter-cutout-700.webp" imagesrcset="assets/img/platter-cutout-700.webp 700w, assets/img/platter-cutout-1400.webp 1400w" imagesizes="(max-width: 760px) 92vw, 600px" fetchpriority="high">
   <link rel="stylesheet" href="assets/css/style.css?v=1">
   <script type="application/ld+json">
   {
@@ -112,25 +112,53 @@
 
   <main id="main">
     <section class="hero" aria-labelledby="hero-title">
+      <img class="sketch sk-hero-a" src="assets/img/sketch-squid-light.webp" width="500" height="720" alt="" aria-hidden="true" loading="lazy" decoding="async">
+      <img class="sketch sk-hero-b" src="assets/img/sketch-shrimp-light.webp" width="507" height="720" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <div class="wrap hero-inner">
-        <div>
-          <span class="eyebrow light">Seafood &amp; steak · Holborn, London</span>
-          <h1 id="hero-title">A seafood lover’s <em class="script">paradise.</em></h1>
-          <p class="hero-lede">Fruits de mer on ice, whole grilled lobster, oysters by the dozen and 8&nbsp;oz steaks, served the relaxed way they do it on the French coast. On Southampton Row since 2020.</p>
+        <div class="hero-top">
+          <span class="eyebrow light">Seafood &amp; steak · Holborn<span class="hide-sm"> · Since 2020</span></span>
+          <span class="status" data-status>Open every day, 12 noon – 11pm</span>
+        </div>
+        <h1 id="hero-title" class="wordmark"><span aria-hidden="true">The Shell</span><span class="visually-hidden">The Shell, seafood restaurant in Holborn, London</span></h1>
+
+        <figure class="anatomy">
+          <div class="anatomy-stage">
+            <img class="anatomy-plate" src="assets/img/platter-cutout-700.webp" srcset="assets/img/platter-cutout-700.webp 700w, assets/img/platter-cutout-1400.webp 1400w" sizes="(max-width: 760px) 92vw, 600px" width="700" height="700" alt="A round seafood platter on ice: langoustines, snow crab legs, mussels, king prawns and three sauces" fetchpriority="high">
+            <svg class="anatomy-lines" viewBox="0 0 180 100" aria-hidden="true">
+              <g class="leaders">
+                <polyline points="67,21 52,40 34,40"/>
+                <polyline points="51,62 43,74 34,74"/>
+                <polyline points="116,27 130,40 146,40"/>
+                <polyline points="104,57 124,62 146,62"/>
+                <polyline points="102,84 114,88 146,88"/>
+              </g>
+              <g class="pins">
+                <g style="--i:0"><circle cx="67" cy="21" r="2.8"/><text x="67" y="21.2">1</text></g>
+                <g style="--i:1"><circle cx="51" cy="62" r="2.8"/><text x="51" y="62.2">2</text></g>
+                <g style="--i:2"><circle cx="116" cy="27" r="2.8"/><text x="116" y="27.2">3</text></g>
+                <g style="--i:3"><circle cx="104" cy="57" r="2.8"/><text x="104" y="57.2">4</text></g>
+                <g style="--i:4"><circle cx="102" cy="84" r="2.8"/><text x="102" y="84.2">5</text></g>
+              </g>
+            </svg>
+          </div>
+          <figcaption>
+            <ol class="anatomy-labels">
+              <li class="l1" style="--i:0"><b>1</b><span>Langoustines<small>Whole, on crushed ice</small></span></li>
+              <li class="l2" style="--i:1"><b>2</b><span>Mussels<small>In the shell</small></span></li>
+              <li class="l3" style="--i:2"><b>3</b><span>Snow crab legs<small>Sweet and meaty, to share</small></span></li>
+              <li class="l4" style="--i:3"><b>4</b><span>Three house sauces<small>For dipping</small></span></li>
+              <li class="l5" style="--i:4"><b>5</b><span>King prawns<small>Heads on, the French way</small></span></li>
+            </ol>
+          </figcaption>
+        </figure>
+
+        <div class="hero-foot">
+          <p class="hero-tagline">A seafood lover’s <em class="script">paradise</em> on Southampton Row.</p>
+          <p class="hero-lede">Fruits de mer on ice, grilled lobster, oysters by the dozen and halal steaks, served the relaxed way they do it on the French coast.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="book.html">Book a table <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
             <a class="btn btn-ghost" href="menu.html">See the menu</a>
           </div>
-          <div class="hero-meta">
-            <span class="status" data-status>Open every day, 12 noon – 11pm</span>
-            <a href="#visit">124 Southampton Row, WC1B</a>
-          </div>
-        </div>
-        <div class="hero-art">
-          <img src="assets/img/platter-cutout-700.webp" srcset="assets/img/platter-cutout-700.webp 700w, assets/img/platter-cutout-1400.webp 1400w" sizes="(max-width: 860px) 84vw, 640px" width="700" height="700" alt="Snow crab legs, langoustines, king prawns and mussels on a round platter with three sauces" fetchpriority="high">
-          <p class="hero-tag t1"><strong>Fruit de Mer</strong>for two · £58.90</p>
-          <p class="hero-tag t2"><strong>Oysters</strong>by 6, 12 or 24</p>
-          <img class="sketch sk-hero" src="assets/img/sketch-shrimp-light.webp" width="507" height="720" alt="" aria-hidden="true" loading="lazy" decoding="async">
         </div>
       </div>
     </section>

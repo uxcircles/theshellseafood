@@ -55,9 +55,10 @@ Photos, the logo and the hand-drawn crab, fish, shrimp and squid illustrations a
 ## Design direction
 
 - **Colours:** deep navy and the cyan from The Shell's lobster badge, the lobster-orange from the current site's "A seafood lover's paradise!" script, and an oyster-shell cream for light sections.
-- **Type:** Fraunces (headings, with italic for accents) and Figtree (body). Both SIL Open Font License, loaded from Google Fonts.
+- **Type:** Anton (hero wordmark), Fraunces (headings, with italic for accents) and Figtree (body). Both SIL Open Font License, loaded from Google Fonts.
 - **Illustrations:** the current site's hand-drawn seafood sketches return as quiet accents: beside headings, peeking from section edges, and next to Starters / Chilled platters / Grilled fish / Linguine on the menu. They're decorative only (empty `alt`), so screen readers skip them.
-- **Imagery:** the restaurant's own dish cutouts float on navy (the hero platter turns very slowly; it stays still if the visitor prefers reduced motion). Private dining uses the room photos with the glass-fish chandeliers.
+- **Hero, "anatomy of a platter":** a huge THE SHELL wordmark in Anton (echoing the heavy condensed lettering of their logo) with the platter overlapping it like a magazine cover. Pointer lines in the style of the engraved sketches name what's on the plate, and draw themselves in on load (skipped if the visitor prefers reduced motion). On phones the labels turn into a numbered key. To swap the photo, the pins and lines in the hero SVG and the `.l1`–`.l5` label positions need moving to match.
+- **Imagery:** the restaurant's own dish cutouts float on navy. Private dining uses the room photos with the glass-fish chandeliers.
 - **Phones:** a fixed Call / Book a table bar, platters as a swipeable row, menu tabs that follow your scroll.
 - **Map:** OpenStreetMap embed (no API key, no cookies).
 
