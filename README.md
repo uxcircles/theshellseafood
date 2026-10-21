@@ -28,7 +28,7 @@ Reviewed on theshellseafood.com (Wix) in October 2026:
 | 5 | **BOOKING sends guests off-site** to an unbranded page whose browser tab reads "My ASP.NET Application" | Booking page on the site with the same BookingHero widget embedded, plus hours, phone and a large-group route |
 | 6 | The home page "Top 1 in 2024" text **cuts off mid-sentence**: "We are ...." | Rewritten |
 | 7 | Several H1s per page (the logo, "Join seafood paradise…", "For promotions & offers"); address, phone and hours are all H2s | One H1 per page and a proper heading structure |
-| 8 | Menu photos load from originals up to **10 MB each**; the menu page is 30,000 px tall on a phone | 320/640 px WebP thumbnails (≈30 KB), two-column list, sticky section tabs and search |
+| 8 | On a phone the menu page is about **36 screens long** and downloads **6.6 MB in 383 requests** (measured October 2026, all photos loaded) | 320/640 px WebP thumbnails (≈30 KB), sticky section tabs and search; the whole menu is about 1.7 MB in 70 requests |
 | 9 | Parking guide and private dining photos are only images, and the parking details sit inside a JPEG | Parking info as text in the Visit section; private dining has its own page |
 | 10 | Group and private dining bookings say "email us" but give no form | Enquiry form that opens a pre-filled email (no backend needed) |
 | 11 | Structured data is generic | `SeafoodRestaurant` JSON-LD with address, coordinates, phone, hours and menu link |
