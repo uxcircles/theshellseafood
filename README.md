@@ -42,7 +42,9 @@ menu.html             Full menu with photos, prices, section tabs and search
 private-dining.html   Private dining & groups (2–40 guests) with enquiry form
 book.html             BookingHero widget (same one the current site uses) + hours and contact
 assets/css/style.css  All styles. Colours and fonts are the variables at the top (:root)
-assets/js/main.js     Mobile nav, open-now status, menu search + tabs, enquiry form, scroll reveal
+assets/js/main.js     Mobile nav, hero loader, open-now status, menu search + tabs, enquiry form, map loader, scroll reveal
+assets/js/map.js      Map style and markers (colours are the C object at the top)
+assets/vendor/maplibre  MapLibre GL JS 4.7.1 (BSD-3 licence); only loads when the map scrolls near
 assets/img/           Photos (WebP), cutout dishes, logo badge, og.jpg share image
 assets/img/menu/      Menu thumbnails, 320 and 640 px squares, named after the dish
 favicon.png, apple-touch-icon.png, robots.txt
@@ -60,7 +62,7 @@ Photos, the logo and the hand-drawn crab, fish, shrimp and squid illustrations a
 - **Hero, "anatomy of a platter":** a huge THE SHELL wordmark in Anton (echoing the heavy condensed lettering of their logo) with the platter overlapping it like a magazine cover. Pointer lines in the style of the engraved sketches name what's on the plate, and draw themselves in on load (skipped if the visitor prefers reduced motion). On phones the labels turn into a numbered key. While the platter photo loads (slow mobile connections), a plate-rim loader turns in its place; the intro only plays once the image is fully decoded, and if the image fails the loader rim stays as a quiet placeholder. To swap the photo, the pins and lines in the hero SVG and the `.l1`–`.l5` label positions need moving to match.
 - **Imagery:** the restaurant's own dish cutouts float on navy. Private dining uses the room photos with the glass-fish chandeliers.
 - **Phones:** a fixed Call / Book a table bar, platters as a swipeable row, menu tabs that follow your scroll.
-- **Map:** OpenStreetMap embed (no API key, no cookies).
+- **Map:** MapLibre vector map with free OpenFreeMap street data (no API key, no cookies). Every layer is recoloured to the site: navy land and buildings, blue-grey streets, deep sea-green parks, badge-blue water. A coral pin holds the lobster badge, and Russell Square and Holborn stations get Tube roundels. One finger scrolls the page on phones; two fingers move the map. If WebGL or the scripts are blocked, the panel shows an "Open in Google Maps" link instead.
 
 ## To confirm before going live
 

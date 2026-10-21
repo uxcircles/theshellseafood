@@ -25,7 +25,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Figtree:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="assets/img/platter-cutout-700.webp" imagesrcset="assets/img/platter-cutout-700.webp 700w, assets/img/platter-cutout-880.webp 880w" imagesizes="(max-width: 760px) 92vw, 600px" fetchpriority="high">
-  <link rel="stylesheet" href="assets/css/style.css?v=3">
+  <link rel="stylesheet" href="assets/css/style.css?v=4">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -337,7 +337,10 @@
         </div>
         <div class="visit-side">
           <div class="map">
-            <iframe title="Map showing The Shell at 124 Southampton Row" src="https://www.openstreetmap.org/export/embed.html?bbox=-0.1277%2C51.5186%2C-0.1182%2C51.5229&amp;layer=mapnik&amp;marker=51.52076%2C-0.12294" loading="lazy"></iframe>
+            <!-- MapLibre is bundled in assets/vendor; the map (assets/js/map.js) only loads when it scrolls near the viewport -->
+            <div class="map-canvas" data-map data-lib="assets/vendor/maplibre/" data-src="assets/js/map.js?v=1" data-logo="assets/img/logo-badge.png" data-lat="51.52076" data-lng="-0.12294" data-stations='[["Russell Square", -0.1243, 51.5231], ["Holborn", -0.1200, 51.5174]]' role="img" aria-label="Map showing The Shell at 124 Southampton Row, between Russell Square and Holborn stations">
+              <a class="map-fallback" href="https://www.google.com/maps/place/The+Shell/@51.5207627,-0.1251256,17z/data=!3m1!4b1!4m6!3m5!1s0x48761bf2e88a51cd:0xa73f724916147853!8m2!3d51.5207627!4d-0.1229369" target="_blank" rel="noopener">Open in Google Maps ↗</a>
+            </div>
           </div>
           <div class="parking">
             <h3><svg class="icon" aria-hidden="true" style="vertical-align:-3px;margin-right:6px"><use href="#i-car"/></svg>Coming by car?</h3>
@@ -402,6 +405,6 @@
     <a class="btn btn-primary" href="book.html">Book a table</a>
   </nav>
 
-  <script src="assets/js/main.js?v=2" defer></script>
+  <script src="assets/js/main.js?v=3" defer></script>
 </body>
 </html>

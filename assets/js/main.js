@@ -126,6 +126,38 @@
     });
   }
 
+  /* ---------- Map (MapLibre, loaded on demand) ---------- */
+  var mapEl = document.querySelector('[data-map]');
+  if (mapEl) {
+    var lib = mapEl.getAttribute('data-lib');
+    var addScript = function (src) {
+      return new Promise(function (resolve, reject) {
+        var js = document.createElement('script');
+        js.src = src; js.onload = resolve; js.onerror = reject;
+        document.head.appendChild(js);
+      });
+    };
+    var startMap = function () {
+      var css = document.createElement('link');
+      css.rel = 'stylesheet';
+      css.href = lib + 'maplibre-gl.css';
+      document.head.appendChild(css);
+      return addScript(lib + 'maplibre-gl.js')
+        .then(function () { return addScript(mapEl.getAttribute('data-src')); })
+        .then(function () { window.shellMap(mapEl); mapEl.classList.add('is-ready'); })
+        // no WebGL or blocked scripts: keep the plain panel with its Google Maps link
+        .catch(function () { mapEl.classList.add('is-failed'); });
+    };
+    if ('IntersectionObserver' in window) {
+      var mapIo = new IntersectionObserver(function (entries) {
+        if (entries.some(function (en) { return en.isIntersecting; })) { mapIo.disconnect(); startMap(); }
+      }, { rootMargin: '400px 0px' });
+      mapIo.observe(mapEl);
+    } else {
+      startMap();
+    }
+  }
+
   /* ---------- Reveal on scroll ---------- */
   var reveals = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
