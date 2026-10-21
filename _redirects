@@ -1,0 +1,6 @@
+# Netlify / Cloudflare Pages: keep the old Wix URLs working (Google results, Instagram bio links…)
+/about                  /#story               301
+/menus                  /menu.html            301
+/special                /#specials            301
+/%E5%89%AF%E6%9C%AC-about  /#visit            301
+/副本-about              /#visit               301
