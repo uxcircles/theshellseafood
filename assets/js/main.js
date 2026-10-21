@@ -2,6 +2,21 @@
 (function () {
   document.documentElement.classList.replace('no-js', 'js');
 
+  /* ---------- Hero: wait for the platter photo, then play the intro ----------
+     decode() makes sure the image is ready to paint, so it never pops in half-drawn. */
+  var anatomy = document.querySelector('.anatomy');
+  if (anatomy) {
+    var plate = anatomy.querySelector('.anatomy-plate');
+    var shown = false;
+    var reveal = function () { if (!shown) { shown = true; anatomy.classList.add('is-ready'); } };
+    var decodeThenReveal = function () { (plate.decode ? plate.decode() : Promise.resolve()).then(reveal, reveal); };
+    if (plate.complete && plate.naturalWidth) decodeThenReveal();
+    else {
+      plate.addEventListener('load', decodeThenReveal);
+      plate.addEventListener('error', function () { anatomy.classList.add('is-failed'); reveal(); });
+    }
+  }
+
   /* ---------- Mobile nav ---------- */
   var toggle = document.querySelector('[data-nav-toggle]');
   var nav = document.getElementById('site-nav');

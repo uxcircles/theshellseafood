@@ -165,14 +165,38 @@ em.script { font-style: italic; font-weight: 500; color: var(--coral); }
 .sk-hero-a { width: clamp(120px, 13vw, 200px); left: -30px; top: 30%; transform: rotate(-24deg); }
 .sk-hero-b { width: clamp(110px, 12vw, 180px); right: -20px; top: 8%; transform: rotate(18deg); }
 
-/* Draw-in on load */
+/* ---------- Loading, then draw-in ----------
+   With JS on, the platter, pins, lines and labels stay hidden and a plate-rim
+   loader turns until the photo has fully loaded (main.js adds .is-ready).
+   Without JS everything simply shows. */
+.plate-loader { position: absolute; left: 22.222%; width: 55.556%; top: 0; height: 100%; display: none; place-items: center; pointer-events: none; }
+.js .plate-loader { display: grid; }
+.plate-rim, .plate-ice { position: absolute; inset: 1.5%; border-radius: 50%; }
+.plate-rim { border: 2px solid rgba(238,243,248,.14); }
+.plate-rim::after { content: ""; position: absolute; inset: -2px; border-radius: 50%; border: 2px solid transparent; border-top-color: var(--coral); border-right-color: rgba(239,106,61,.35); }
+.plate-ice { inset: 7%; background: radial-gradient(circle at 50% 45%, rgba(159,220,246,.14), rgba(159,220,246,.03) 62%, transparent 70%); }
+.plate-text { position: relative; font-family: var(--f-display); font-style: italic; font-size: clamp(1rem, 1.6vw, 1.25rem); color: var(--on-ink-muted); }
+.js .anatomy:not(.is-ready) .anatomy-plate,
+.js .anatomy:not(.is-ready) .pins > g,
+.js .anatomy:not(.is-ready) .anatomy-labels li { opacity: 0; }
+.js .anatomy:not(.is-ready) .leaders polyline { stroke-dashoffset: 60; }
+.anatomy.is-ready .plate-loader { opacity: 0; transition: opacity .35s ease; }
+.anatomy.is-failed .plate-loader { opacity: 1; }
+.anatomy.is-failed .plate-text { display: none; }
+.anatomy.is-failed .anatomy-plate, .anatomy.is-failed .pins, .anatomy.is-failed .leaders { display: none; }
+
 @media (prefers-reduced-motion: no-preference) {
-  .leaders polyline { stroke-dashoffset: 60; animation: draw .9s cubic-bezier(.6,0,.2,1) forwards; animation-delay: calc(.5s + var(--n, 0) * .12s); }
+  .plate-rim::after { animation: spin 1.1s linear infinite; }
+  .plate-ice { animation: breathe 1.8s ease-in-out infinite; }
+  .anatomy.is-ready .plate-rim::after, .anatomy.is-ready .plate-ice { animation: none; }
+  .anatomy.is-ready .anatomy-plate { animation: settle 1.1s cubic-bezier(.2,.8,.2,1) both; }
+  .anatomy.is-ready .pins > g { opacity: 0; transform-box: fill-box; transform-origin: center; animation: pop .45s cubic-bezier(.3,1.6,.5,1) forwards; animation-delay: calc(.45s + var(--i) * .12s); }
+  .anatomy.is-ready .leaders polyline { stroke-dashoffset: 60; animation: draw .9s cubic-bezier(.6,0,.2,1) forwards; animation-delay: calc(.6s + var(--n, 0) * .12s); }
   .leaders polyline:nth-child(2) { --n: 1; } .leaders polyline:nth-child(3) { --n: 2; } .leaders polyline:nth-child(4) { --n: 3; } .leaders polyline:nth-child(5) { --n: 4; }
-  .pins > g { opacity: 0; transform-box: fill-box; transform-origin: center; animation: pop .45s cubic-bezier(.3,1.6,.5,1) forwards; animation-delay: calc(.35s + var(--i) * .12s); }
-  .anatomy-labels li { opacity: 0; animation: fade-in .6s ease forwards; animation-delay: calc(1.1s + var(--i) * .12s); }
-  .anatomy-plate { animation: settle 1.2s cubic-bezier(.2,.8,.2,1) both; }
+  .anatomy.is-ready .anatomy-labels li { opacity: 0; animation: fade-in .6s ease forwards; animation-delay: calc(1.1s + var(--i) * .12s); }
 }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes breathe { 50% { opacity: .45; transform: scale(.97); } }
 @keyframes draw { to { stroke-dashoffset: 0; } }
 @keyframes pop { from { opacity: 0; transform: scale(.2); } to { opacity: 1; transform: none; } }
 @keyframes fade-in { to { opacity: 1; } }

@@ -24,8 +24,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Figtree:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&display=swap" rel="stylesheet">
-  <link rel="preload" as="image" href="assets/img/platter-cutout-700.webp" imagesrcset="assets/img/platter-cutout-700.webp 700w, assets/img/platter-cutout-1400.webp 1400w" imagesizes="(max-width: 760px) 92vw, 600px" fetchpriority="high">
-  <link rel="stylesheet" href="assets/css/style.css?v=1">
+  <link rel="preload" as="image" href="assets/img/platter-cutout-700.webp" imagesrcset="assets/img/platter-cutout-700.webp 700w, assets/img/platter-cutout-880.webp 880w" imagesizes="(max-width: 760px) 92vw, 600px" fetchpriority="high">
+  <link rel="stylesheet" href="assets/css/style.css?v=2">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -123,7 +123,12 @@
 
         <figure class="anatomy">
           <div class="anatomy-stage">
-            <img class="anatomy-plate" src="assets/img/platter-cutout-700.webp" srcset="assets/img/platter-cutout-700.webp 700w, assets/img/platter-cutout-1400.webp 1400w" sizes="(max-width: 760px) 92vw, 600px" width="700" height="700" alt="A round seafood platter on ice: langoustines, snow crab legs, mussels, king prawns and three sauces" fetchpriority="high">
+            <div class="plate-loader" aria-hidden="true">
+              <span class="plate-rim"></span>
+              <span class="plate-ice"></span>
+              <span class="plate-text">Plating up…</span>
+            </div>
+            <img class="anatomy-plate" src="assets/img/platter-cutout-700.webp" srcset="assets/img/platter-cutout-700.webp 700w, assets/img/platter-cutout-880.webp 880w" sizes="(max-width: 760px) 92vw, 600px" width="700" height="700" alt="A round seafood platter on ice: langoustines, snow crab legs, mussels, king prawns and three sauces" fetchpriority="high">
             <svg class="anatomy-lines" viewBox="0 0 180 100" aria-hidden="true">
               <g class="leaders">
                 <polyline points="67,21 52,40 34,40"/>
@@ -397,6 +402,6 @@
     <a class="btn btn-primary" href="book.html">Book a table</a>
   </nav>
 
-  <script src="assets/js/main.js?v=1" defer></script>
+  <script src="assets/js/main.js?v=2" defer></script>
 </body>
 </html>
