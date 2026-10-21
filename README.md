@@ -81,7 +81,7 @@ Photos, the logo and the hand-drawn crab, fish, shrimp and squid illustrations a
 | Dishes and prices | `menu.html` (each `.menu-section`). Platter and specials prices on `index.html` too |
 | Opening hours | Footer and Visit section on every page, the hours table in `book.html`, the JSON-LD, and `OPEN` / `CLOSE` at the top of the "Open now" block in `assets/js/main.js` |
 | New dish photo | Save to `assets/img/menu/` as `dish-name-320.webp` and `dish-name-640.webp` (square) |
-| CSS / JS changes | Bump `style.css?v=2` / `main.js?v=2` in all four pages so visitors don't get a cached copy |
+| CSS / JS changes | Bump `style.css?v=3` / `main.js?v=2` in all four pages so visitors don't get a cached copy |
 
 ## Deploy
 
