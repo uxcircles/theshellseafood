@@ -95,7 +95,7 @@ ul { margin: 0; padding: 0; }
 
 /* ---------- Buttons ---------- */
 .btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px; border-radius: 999px; font-weight: 600; font-size: 1rem; line-height: 1; text-decoration: none; border: 2px solid transparent; cursor: pointer; transition: transform .15s ease, background-color .15s ease, color .15s ease; }
-.btn:hover { transform: translateY(-1px); }
+@media (hover: hover) { .btn:hover { transform: translateY(-1px); } }
 .btn-primary { background: var(--coral); color: #1a0b04; }
 .btn-primary:hover { background: #ff7d50; }
 .btn-ghost { border-color: rgba(255,255,255,.4); color: var(--on-ink); }
@@ -239,7 +239,8 @@ em.script { font-style: italic; font-weight: 500; color: var(--coral); }
 /* ---------- Platters ---------- */
 .platters { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; list-style: none; }
 .platter { background: var(--paper); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; border: 1px solid var(--line); transition: transform .2s ease, box-shadow .2s ease; }
-.platter:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+/* hover lift only for real pointers: on touch screens it sticks after a tap */
+@media (hover: hover) { .platter:hover { transform: translateY(-3px); box-shadow: var(--shadow); } }
 .platter img { aspect-ratio: 1; object-fit: cover; width: 100%; background: var(--sand); }
 .platter-body { padding: 20px 20px 22px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
 .platter-kind { font-size: .75rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--cyan-deep); }
@@ -250,7 +251,9 @@ em.script { font-style: italic; font-weight: 500; color: var(--coral); }
 .platter-foot span { font-size: .8125rem; color: var(--muted); }
 @media (max-width: 1040px) { .platters { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 560px) {
-  .platters { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 82%; overflow-x: auto; scroll-snap-type: x mandatory; margin-inline: calc(var(--gutter) * -1); padding-inline: var(--gutter); padding-bottom: 8px; scrollbar-width: none; }
+  /* swipeable row: scroll-padding keeps each snapped card on the page gutter, overscroll stops Safari's back-swipe */
+  .platters { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 82%; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: var(--gutter); overscroll-behavior-x: contain; margin-inline: calc(var(--gutter) * -1); padding-inline: var(--gutter); padding-bottom: 8px; scrollbar-width: none; }
+  .js .platters .reveal { opacity: 1; transform: none; transition: none; } /* off-screen cards would otherwise fade in mid-swipe */
   .platters::-webkit-scrollbar { display: none; }
   .platter { scroll-snap-align: start; }
 }
