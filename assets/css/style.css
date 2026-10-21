@@ -390,3 +390,27 @@ em.script { font-style: italic; font-weight: 500; color: var(--coral); }
 .js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
 .js .reveal.in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) { .js .reveal { opacity: 1; transform: none; transition: none; } }
+
+/* ---------- Hand-drawn sketches (from the restaurant's current site) ----------
+   Decorative only: navy ("ink") versions on cream, light-blue versions on navy. */
+.has-sketch { position: relative; overflow: hidden; }
+.has-sketch > .wrap { position: relative; z-index: 1; }
+.sketch { position: absolute; pointer-events: none; user-select: none; height: auto; max-width: none; z-index: 0; }
+.hero-art .sk-hero { position: absolute; width: 30%; height: auto; left: -24%; top: 2%; opacity: .45; transform: rotate(-14deg); z-index: 0; animation: none; filter: none; }
+.sk-platters { width: 190px; left: calc(50% - 790px); top: 24px; opacity: .5; transform: rotate(-16deg); }
+.sk-specials { width: clamp(150px, 17vw, 250px); right: -30px; top: -40px; opacity: .2; transform: rotate(32deg); }
+.story-photos .sk-story { width: 58%; left: -6%; bottom: -10%; opacity: .85; z-index: 2; transform: rotate(-6deg); }
+.sk-notes { width: clamp(110px, 12vw, 170px); right: max(var(--gutter), calc(50% - 600px)); top: -10px; opacity: .6; transform: rotate(-10deg); }
+.sk-visit { width: clamp(260px, 30vw, 440px); left: -80px; bottom: -60px; opacity: .1; transform: rotate(12deg); }
+.page-hero .sk-page { width: clamp(140px, 14vw, 210px); right: 40%; top: 8%; opacity: .22; transform: rotate(-20deg); }
+.menu-section-head .sk-menu { position: static; height: 58px; width: auto; margin: 0 auto 0 16px; align-self: center; opacity: .75; }
+.sk-pd { width: clamp(220px, 24vw, 340px); left: -70px; bottom: 30px; opacity: .14; transform: rotate(-12deg); }
+.sk-book { width: clamp(120px, 12vw, 180px); left: max(8px, calc(50% - 720px)); bottom: 40px; opacity: .2; transform: rotate(-18deg); }
+@media (max-width: 860px) {
+  .hero-art .sk-hero { width: 30%; left: -14%; top: auto; bottom: -6%; }
+  .sk-platters { width: 84px; top: 8px; left: auto; right: -18px; opacity: .35; transform: rotate(16deg); }
+  .sk-notes { width: 90px; top: 0; right: -6px; }
+  .page-hero .sk-page, .sk-pd, .sk-book { display: none; }
+  .story-photos .sk-story { width: 46%; left: auto; right: 38%; bottom: -6%; }
+}
+@media (max-width: 520px) { .menu-section-head .sk-menu { height: 44px; } }

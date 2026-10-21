@@ -50,12 +50,13 @@ _redirects            Old Wix URLs → new pages (Netlify / Cloudflare Pages)
 vercel.json           Same redirects + cache headers (Vercel)
 ```
 
-Photos and the logo belong to The Shell (taken from theshellseafood.com). The hand-drawn crab/fish/shrimp illustrations on the current site were left out because they carry stock-site watermarks.
+Photos, the logo and the hand-drawn crab, fish, shrimp and squid illustrations all come from theshellseafood.com. The illustrations are recoloured into two versions: navy for cream sections and light blue for navy sections (`assets/img/sketch-*-ink.webp` / `-light.webp`).
 
 ## Design direction
 
 - **Colours:** deep navy and the cyan from The Shell's lobster badge, the lobster-orange from the current site's "A seafood lover's paradise!" script, and an oyster-shell cream for light sections.
 - **Type:** Fraunces (headings, with italic for accents) and Figtree (body). Both SIL Open Font License, loaded from Google Fonts.
+- **Illustrations:** the current site's hand-drawn seafood sketches return as quiet accents: beside headings, peeking from section edges, and next to Starters / Chilled platters / Grilled fish / Linguine on the menu. They're decorative only (empty `alt`), so screen readers skip them.
 - **Imagery:** the restaurant's own dish cutouts float on navy (the hero platter turns very slowly; it stays still if the visitor prefers reduced motion). Private dining uses the room photos with the glass-fish chandeliers.
 - **Phones:** a fixed Call / Book a table bar, platters as a swipeable row, menu tabs that follow your scroll.
 - **Map:** OpenStreetMap embed (no API key, no cookies).
@@ -67,6 +68,7 @@ Photos and the logo belong to The Shell (taken from theshellseafood.com). The ha
 - [ ] **Booking widget**: the widget says groups over 12 should call; the site sends 13+ to the private dining enquiry. Confirm the cut-off
 - [ ] **Private dining**: "2–40 guests" comes from the current site. Are there set menus or a minimum spend to mention?
 - [ ] **Menu prices** are copied from theshellseafood.com/menus (October 2026). The "Lobster Linguine" description differs between the menu (half lobster) and the specials poster (half lobster + king prawns); the specials text follows the poster
+- [ ] **Illustration licence**: confirm where the crab / fish / shrimp / squid drawings came from and that the licence covers web use
 - [ ] **Newsletter**: the current "Subscribe" box is left out. Add it back if they actively send offers
 - [ ] **French and Chinese versions** (`/fr`, `/zh`) aren't redesigned yet
 - [ ] When moving to the real domain, update `canonical`, `og:url`, `og:image` and the JSON-LD URLs (currently `https://uxcircles.github.io/theshellseafood/`)
