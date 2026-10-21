@@ -391,9 +391,10 @@ em.script { font-style: italic; font-weight: 500; color: var(--coral); }
 .menu-search { position: relative; flex: 0 0 260px; }
 .menu-search input { width: 100%; padding: 10px 14px 10px 38px; border-radius: 999px; border: 1px solid var(--line); background: var(--paper); font-size: .9375rem; }
 .menu-search .icon { position: absolute; left: 13px; top: 50%; transform: translateY(-50%); color: var(--muted); }
-@media (max-width: 760px) { .menu-section { scroll-margin-top: 128px; } .menu-tools-inner { flex-direction: column-reverse; align-items: stretch; gap: 10px; } .menu-search { flex: none; } .menu-cats { margin-inline: calc(var(--gutter) * -1); padding-inline: var(--gutter); } }
+@media (max-width: 760px) { .menu-tools-inner { flex-direction: column-reverse; align-items: stretch; gap: 10px; } .menu-search { flex: none; } .menu-cats { margin-inline: calc(var(--gutter) * -1); padding-inline: var(--gutter); } }
 .menu-body { padding-block: 40px 96px; }
 .menu-section { padding-top: 40px; scroll-margin-top: 64px; } /* clear the sticky tabs */
+@media (max-width: 760px) { .menu-section { scroll-margin-top: 80px; } } /* tabs stack with search on phones */
 .menu-section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); margin-bottom: 8px; flex-wrap: wrap; }
 .menu-section-head h2 { font-size: clamp(1.875rem, 3.6vw, 2.625rem); }
 .menu-section-head p { color: var(--muted); font-size: .9375rem; }
