@@ -15,25 +15,6 @@ python3 .claude/serve.py
 
 Then open http://localhost:5179. (Any static file server works; this one just turns off caching.) The booking widget and map only load over http(s), not when you double-click the HTML files.
 
-## What this fixes on the current site
-
-Reviewed on theshellseafood.com (Wix) in October 2026:
-
-| # | Problem | What the redesign does |
-|---|---|---|
-| 1 | Home page hours read **"12.00am – 23.00pm"**, which means midnight to 11pm. The contact page says 12:00–23:00 | One set of hours everywhere (12 noon – 11pm), plus a live "Open now" status worked out on London time |
-| 2 | Footer on every page says **"© 2035 by The Pizza Shop"** (Wix template leftover) | Correct footer |
-| 3 | The Contact page lives at **`/副本-about`** ("copy of about" in Chinese), and the "About" page is titled "CONTACT" in some places | Clear pages and URLs; old URLs redirect (see `_redirects` / `vercel.json`) |
-| 4 | **Specials are poster images only**: no text for screen readers or Google, and too small to read on a phone | Specials are real text with prices on the home page |
-| 5 | **BOOKING sends guests off-site** to an unbranded page whose browser tab reads "My ASP.NET Application" | Booking page on the site with the same BookingHero widget embedded, plus hours, phone and a large-group route |
-| 6 | The home page "Top 1 in 2024" text **cuts off mid-sentence**: "We are ...." | Rewritten |
-| 7 | Several H1s per page (the logo, "Join seafood paradise…", "For promotions & offers"); address, phone and hours are all H2s | One H1 per page and a proper heading structure |
-| 8 | On a phone the menu page is about **36 screens long** and downloads **6.6 MB in 383 requests** (measured October 2026, all photos loaded) | 320/640 px WebP thumbnails (≈30 KB), sticky section tabs and search; the whole menu is about 1.7 MB in 70 requests |
-| 9 | Parking guide and private dining photos are only images, and the parking details sit inside a JPEG | Parking info as text in the Visit section; private dining has its own page |
-| 10 | Group and private dining bookings say "email us" but give no form | Enquiry form that opens a pre-filled email (no backend needed) |
-| 11 | Structured data is generic | `SeafoodRestaurant` JSON-LD with address, coordinates, phone, hours and menu link |
-| 12 | Google reviews icon links to a giant Google search URL for "the shell 评价" | Socials link to Instagram, Facebook and Tripadvisor directly |
-
 ## Structure
 
 ```
@@ -64,18 +45,6 @@ Photos, the logo and the hand-drawn crab, fish, shrimp and squid illustrations a
 - **Phones:** a fixed Call / Book a table bar, platters as a swipeable row, menu tabs that follow your scroll.
 - **Map:** MapLibre vector map with free OpenFreeMap street data (no API key, no cookies). Every layer is recoloured to the site: navy land and buildings, blue-grey streets, deep sea-green parks, badge-blue water. A coral pin holds the lobster badge, and Russell Square and Holborn stations get Tube roundels. One finger scrolls the page on phones; two fingers move the map. If WebGL or the scripts are blocked, the panel shows an "Open in Google Maps" link instead.
 
-## To confirm before going live
-
-- [ ] **Opening hours**: the site uses Monday–Sunday 12:00–23:00 (from the current contact page). Confirm, especially last orders
-- [ ] **Tripadvisor claim**: "Top seafood on Tripadvisor, London 2024" restates the current site's "Top 1 seafood restaurant on Trip Advisor in 2024". Confirm the exact wording of the award
-- [ ] **Booking widget**: the widget says groups over 12 should call; the site sends 13+ to the private dining enquiry. Confirm the cut-off
-- [ ] **Private dining**: "2–40 guests" comes from the current site. Are there set menus or a minimum spend to mention?
-- [ ] **Menu prices** are copied from theshellseafood.com/menus (October 2026). The "Lobster Linguine" description differs between the menu (half lobster) and the specials poster (half lobster + king prawns); the specials text follows the poster
-- [ ] **Illustration licence**: confirm where the crab / fish / shrimp / squid drawings came from and that the licence covers web use
-- [ ] **Newsletter**: the current "Subscribe" box is left out. Add it back if they actively send offers
-- [ ] **French and Chinese versions** (`/fr`, `/zh`) aren't redesigned yet
-- [ ] When moving to the real domain, update `canonical`, `og:url`, `og:image` and the JSON-LD URLs (currently `https://uxcircles.github.io/theshellseafood/`)
-
 ## Everyday updates
 
 | What | Where |
@@ -92,3 +61,15 @@ Any static host works:
 - **Netlify** or **Cloudflare Pages**: upload the folder; `_redirects` is picked up automatically.
 - **Vercel**: run `npx vercel` in the folder; uses `vercel.json`.
 - **GitHub Pages**: works for a demo, but doesn't support the redirects.
+
+## Internal notes
+
+The review of the current site, the items to confirm with the client and the pitch material are kept locally in `.private/` (git-ignored, never committed).
+
+After cloning, enable the git hooks:
+
+```
+git config core.hooksPath .githooks
+```
+
+Commits and pushes are then blocked if they include `.private/` or a phrase from `.private/blocklist.txt`, and the open to-dos in `.private/NOTES.md` are printed. To see them any time: `sh .githooks/remind.sh`
