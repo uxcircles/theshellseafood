@@ -2,12 +2,86 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/about", "destination": "/#story", "permanent": true },
-    { "source": "/menus", "destination": "/menu", "permanent": true },
-    { "source": "/special", "destination": "/#specials", "permanent": true },
-    { "source": "/%E5%89%AF%E6%9C%AC-about", "destination": "/#visit", "permanent": true }
+    {
+      "source": "/about",
+      "destination": "/#story",
+      "permanent": true
+    },
+    {
+      "source": "/menus",
+      "destination": "/menu",
+      "permanent": true
+    },
+    {
+      "source": "/special",
+      "destination": "/#specials",
+      "permanent": true
+    },
+    {
+      "source": "/%E5%89%AF%E6%9C%AC-about",
+      "destination": "/#visit",
+      "permanent": true
+    },
+    {
+      "source": "/zh/about",
+      "destination": "/zh/#story",
+      "permanent": true
+    },
+    {
+      "source": "/zh/menus",
+      "destination": "/zh/menu",
+      "permanent": true
+    },
+    {
+      "source": "/zh/special",
+      "destination": "/zh/#specials",
+      "permanent": true
+    },
+    {
+      "source": "/zh/copy-of-special",
+      "destination": "/zh/#specials",
+      "permanent": true
+    },
+    {
+      "source": "/zh/%E5%89%AF%E6%9C%AC-about",
+      "destination": "/zh/#visit",
+      "permanent": true
+    },
+    {
+      "source": "/fr/about",
+      "destination": "/fr/#story",
+      "permanent": true
+    },
+    {
+      "source": "/fr/menus",
+      "destination": "/fr/menu",
+      "permanent": true
+    },
+    {
+      "source": "/fr/special",
+      "destination": "/fr/#specials",
+      "permanent": true
+    },
+    {
+      "source": "/fr/copy-of-special",
+      "destination": "/fr/#specials",
+      "permanent": true
+    },
+    {
+      "source": "/fr/%E5%89%AF%E6%9C%AC-about",
+      "destination": "/fr/#visit",
+      "permanent": true
+    }
   ],
   "headers": [
-    { "source": "/assets/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=2592000" }] }
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=2592000"
+        }
+      ]
+    }
   ]
 }

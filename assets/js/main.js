@@ -33,6 +33,18 @@
     });
   }
 
+  /* ---------- Page language (en / zh / fr) for text written by this script ---------- */
+  var LANG = (document.documentElement.lang || 'en').slice(0, 2);
+  var T = {
+    en: { open: 'Open now · until 11pm', closing: 'Closing soon · 11pm', soon: 'Opens soon · 12 noon', today: 'Closed · opens 12 noon today', tomorrow: 'Closed · opens 12 noon tomorrow',
+          sent: 'Your email app should open with the enquiry ready to send. If it doesn’t, email support@theshellseafood.com or call 020 8075 7500.' },
+    zh: { open: '营业中 · 至晚上11点', closing: '即将打烊 · 晚上11点', soon: '即将开门 · 中午12点', today: '休息中 · 今天中午12点开门', tomorrow: '休息中 · 明天中午12点开门',
+          sent: '您的邮件程序应已打开，询问内容已填好，直接发送即可。如未打开，请发邮件至 support@theshellseafood.com 或致电 020 8075 7500。' },
+    fr: { open: 'Ouvert · jusqu’à 23 h', closing: 'Ferme bientôt · 23 h', soon: 'Ouvre bientôt · midi', today: 'Fermé · ouvre aujourd’hui à midi', tomorrow: 'Fermé · ouvre demain à midi',
+          sent: 'Votre messagerie devrait s’ouvrir avec la demande prête à envoyer. Sinon, écrivez à support@theshellseafood.com ou appelez le 020 8075 7500.' }
+  }[LANG] || null;
+  if (!T) T = { open: 'Open now · until 11pm', closing: 'Closing soon · 11pm', soon: 'Opens soon · 12 noon', today: 'Closed · opens 12 noon today', tomorrow: 'Closed · opens 12 noon tomorrow', sent: '' };
+
   /* ---------- Open now (London time) ----------
      Hours: every day 12:00–23:00. Change OPEN / CLOSE if they move. */
   var OPEN = 12 * 60, CLOSE = 23 * 60;
@@ -43,11 +55,11 @@
   }
   function renderStatus() {
     var now = londonNow(), text, cls;
-    if (now.mins >= OPEN && now.mins < CLOSE - 30) { text = 'Open now · until 11pm'; cls = 'is-open'; }
-    else if (now.mins >= CLOSE - 30 && now.mins < CLOSE) { text = 'Closing soon · 11pm'; cls = 'is-soon'; }
-    else if (now.mins < OPEN && now.mins >= OPEN - 60) { text = 'Opens soon · 12 noon'; cls = 'is-soon'; }
-    else if (now.mins < OPEN) { text = 'Closed · opens 12 noon today'; cls = ''; }
-    else { text = 'Closed · opens 12 noon tomorrow'; cls = ''; }
+    if (now.mins >= OPEN && now.mins < CLOSE - 30) { text = T.open; cls = 'is-open'; }
+    else if (now.mins >= CLOSE - 30 && now.mins < CLOSE) { text = T.closing; cls = 'is-soon'; }
+    else if (now.mins < OPEN && now.mins >= OPEN - 60) { text = T.soon; cls = 'is-soon'; }
+    else if (now.mins < OPEN) { text = T.today; cls = ''; }
+    else { text = T.tomorrow; cls = ''; }
     document.querySelectorAll('[data-status]').forEach(function (el) {
       el.textContent = text;
       el.classList.remove('is-open', 'is-soon');
@@ -122,7 +134,7 @@
       var subject = 'Group / private dining enquiry – ' + d.get('guests') + ' guests on ' + d.get('date');
       window.location.href = 'mailto:support@theshellseafood.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(lines.join('\n'));
       var status = document.getElementById('form-status');
-      if (status) status.textContent = 'Your email app should open with the enquiry ready to send. If it doesn’t, email support@theshellseafood.com or call 020 8075 7500.';
+      if (status) status.textContent = T.sent;
     });
   }
 

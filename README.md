@@ -2,7 +2,7 @@
 
 A redesign concept for [The Shell Seafood Restaurant](https://www.theshellseafood.com/), a French-style seafood and steak restaurant at 124 Southampton Row, Holborn, London WC1B 5AA. Built as plain HTML, CSS and JavaScript, with no build step.
 
-**Pages:** Home · Menu · Private dining · Book a table
+**Pages:** Home · Menu · Private dining · Book a table, in English, 简体中文 (`/zh/`) and Français (`/fr/`)
 
 > **Concept design:** this is a redesign proposal by [UX CIRCLES](https://ux-circles.com/web), not The Shell's official website. Every page has a "Concept" bar, carries `noindex`, and `robots.txt` blocks crawlers so it doesn't compete with the real site in search.
 > If the restaurant adopts it: delete the `.concept-bar` block on each page, remove `<meta name="robots" content="noindex, nofollow">`, and change `robots.txt` to `Allow: /`.
@@ -41,6 +41,8 @@ index.html            Home: hero, signature platters, all-day specials, story, g
 menu.html             Full menu with photos, prices, section tabs and search
 private-dining.html   Private dining & groups (2–40 guests) with enquiry form
 book.html             BookingHero widget (same one the current site uses) + hours and contact
+zh/                   Simplified Chinese versions of the four pages (same file names)
+fr/                   French versions of the four pages
 assets/css/style.css  All styles. Colours and fonts are the variables at the top (:root)
 assets/js/main.js     Mobile nav, hero loader, open-now status, menu search + tabs, enquiry form, map loader, scroll reveal
 assets/js/map.js      Map style and markers (colours are the C object at the top)
@@ -73,17 +75,20 @@ Photos, the logo and the hand-drawn crab, fish, shrimp and squid illustrations a
 - [ ] **Menu prices** are copied from theshellseafood.com/menus (October 2026). The "Lobster Linguine" description differs between the menu (half lobster) and the specials poster (half lobster + king prawns); the specials text follows the poster
 - [ ] **Illustration licence**: confirm where the crab / fish / shrimp / squid drawings came from and that the licence covers web use
 - [ ] **Newsletter**: the current "Subscribe" box is left out. Add it back if they actively send offers
-- [ ] **French and Chinese versions** (`/fr`, `/zh`) aren't redesigned yet
+- [ ] **Chinese and French copy**: please have a native speaker read `zh/` and `fr/`. Chinese dish names follow the restaurant's own Chinese menu (theshellseafood.com/zh/menus); the "For Two" platters it left in English are named in the same pattern (e.g. 海鲜拼盘（2人份）). The Chinese story quote uses the restaurant's own Chinese wording, which is about value ("不应该让人心疼钱包"), not a literal translation of the English quote
+- [ ] **Lunch deals and a second branch**: the Chinese site has a 午餐特惠 page (set lunches from £11.90, 12:00–17:00) that the English site doesn't, and it mentions **The Shell Canary Wharf**. Neither is in this concept yet
+- [ ] **Booking widget language**: BookingHero only shows in English, also on the Chinese and French booking pages
 - [ ] When moving to the real domain, update `canonical`, `og:url`, `og:image` and the JSON-LD URLs (currently `https://uxcircles.github.io/theshellseafood/`)
 
 ## Everyday updates
 
 | What | Where |
 |---|---|
-| Dishes and prices | `menu.html` (each `.menu-section`). Platter and specials prices on `index.html` too |
+| Dishes and prices | `menu.html` (each `.menu-section`). Platter and specials prices on `index.html` too. Change the same item in `zh/` and `fr/` |
 | Opening hours | Footer and Visit section on every page, the hours table in `book.html`, the JSON-LD, and `OPEN` / `CLOSE` at the top of the "Open now" block in `assets/js/main.js` |
 | New dish photo | Save to `assets/img/menu/` as `dish-name-320.webp` and `dish-name-640.webp` (square) |
-| CSS / JS changes | Bump `style.css?v=9` / `main.js?v=2` in all four pages so visitors don't get a cached copy |
+| Any text | Each language is its own HTML file: when you change a page, change `zh/` and `fr/` too |
+| CSS / JS changes | Bump `style.css?v=10` / `main.js?v=4` in all twelve pages so visitors don't get a cached copy. Text that the script writes (open/closed status, form message) is in the `T` object near the top of `main.js`, in all three languages |
 
 ## Deploy
 
