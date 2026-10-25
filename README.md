@@ -15,6 +15,14 @@ python3 .claude/serve.py
 
 Then open http://localhost:5179. (Any static file server works; this one just turns off caching.) The booking widget and map only load over http(s), not when you double-click the HTML files.
 
+## Specials from a Google Sheet
+
+The home page specials (English, 简体中文 and Français) are read from a Google Sheet, so the restaurant can change dishes, prices or mark something sold out without touching the code.
+
+- Sheet columns: `group_en`, `group_zh`, `group_fr`, `name_en`, `desc_en`, `name_zh`, `desc_zh`, `name_fr`, `desc_fr`, `price`, `available` (`yes` or `no`; `no` shows "Sold out today").
+- The sheet ID is in `data-specials-sheet` on the `#specials` section of each home page. The sheet must be shared as **Anyone with the link can view**.
+- `assets/js/specials.js` loads the sheet. The specials written into the HTML stay as the fallback, and the last good copy is cached in the browser, so the section never goes empty. Changes show up within about 5 minutes.
+
 ## What this fixes on the current site
 
 Reviewed on theshellseafood.com (Wix) in October 2026:
