@@ -1,2 +1,5 @@
 .DS_Store
 .claude/settings.local.json
+
+# Local-only client notes, pitch images and reminders. Never commit.
+.private/
