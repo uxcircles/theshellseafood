@@ -4,7 +4,7 @@ A redesign concept for [The Shell Seafood Restaurant](https://www.theshellseafoo
 
 **Pages:** Home · Menu · Private dining · Book a table, in English, 简体中文 (`/zh/`) and Français (`/fr/`)
 
-> **Concept design:** this is a redesign proposal by [UX CIRCLES](https://ux-circles.com/web), not The Shell's official website. Every page has a "Concept" bar, carries `noindex`, and `robots.txt` blocks crawlers so it doesn't compete with the real site in search.
+> **Concept design:** this is a redesign proposal by [UX CIRCLES](https://ux-circles.com/restaurants), not The Shell's official website. Every page has a "Concept" bar, carries `noindex`, and `robots.txt` blocks crawlers so it doesn't compete with the real site in search.
 > If the restaurant adopts it: delete the `.concept-bar` block on each page, remove `<meta name="robots" content="noindex, nofollow">`, and change `robots.txt` to `Allow: /`.
 
 ## Run locally
